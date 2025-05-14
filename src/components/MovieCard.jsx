@@ -13,8 +13,10 @@ const MovieCard = ({ id }) => {
   const year = movie.release_date.split("-")[0];
 
   return (
-    <div className="relative w-72 bg-[#2f2f2f] text-white rounded-lg shadow-md
-    border-2 border-transparent hover:shadow-lg hover:border-[#5031D6] overflow-hidden">
+    <div
+      className="relative w-72 bg-[var(--bg-movie-card)] rounded-lg shadow-md
+    border-2 border-transparent hover:shadow-lg hover:border-[var(--color-accent)] overflow-hidden"
+    >
       <Link to={`/movies/${movie.id}`}>
         <div
           className="relative"
@@ -27,19 +29,23 @@ const MovieCard = ({ id }) => {
             className="w-full h-80 object-cover rounded-t-lg"
           />
           {hover && (
-            <div className="absolute top-0 left-0 w-full h-80
-            bg-[#2f2f2f] bg-opacity-100 text-sm text-gray-300 p-4 overflow-y-auto rounded-t-lg">
+            <div
+              className="absolute top-0 left-0 w-full h-80
+            bg-[var(--bg-movie-card)] bg-opacity-100 text-sm text-[var(--text-color)] p-4 overflow-y-auto rounded-t-lg"
+            >
               {movie.description}
             </div>
           )}
         </div>
         <div className="p-4">
-          <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
-          <p className="text-sm text-gray-400 mt-1 flex justify-between">
+          <h3 className="text-lg text-[var(--text-color)] font-semibold truncate text-[var(--text-color)]">
+            {movie.title}
+          </h3>
+          <p className="text-sm text-[var(--text-color)] mt-1 flex justify-between">
             <span>{year}</span>
-            <span>⭐ {movie.generalRating ||movie.rating}/10</span>
+            <span>⭐ {movie.generalRating || movie.rating}/10</span>
           </p>
-          <p className="text-sm text-gray-300 mt-1">
+          <p className="text-sm text-[var(--text-color)] mt-1">
             {movie.genre.slice(0, 3).join(", ")}
           </p>
         </div>
